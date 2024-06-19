@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+from tpscrapping.tools.mod_helpers import transform_date
 
 url = 'https://www.quebec.ca/en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec'
 
@@ -7,7 +8,7 @@ response = requests.get(url)
 if response.status_code == 200:
     soup = BeautifulSoup(response.content, 'html.parser')
 
-    last_update = soup.find('div', class_='last-update-info').find_all("span")[1].text
+    last_update = transform_date(soup.find('div', class_='last-update-info').find_all("span")[1].text)
     print(f"Last update: {last_update}")
 
     hospitals = soup.find('ul', class_='results-list list-group').find_all('div', class_='hospital_element')
