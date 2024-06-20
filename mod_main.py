@@ -1,9 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-from tpscrapping.tools.mod_helpers import transform_date
+
+from tools.mod_helpers import transform_date
 
 url = 'https://www.quebec.ca/en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec'
-test = 0
+test = 1
 response = requests.get(url)
 if response.status_code == 200:
     soup = BeautifulSoup(response.content, 'html.parser')
