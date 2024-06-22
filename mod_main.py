@@ -2,8 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 from tools.mod_helpers import transform_date, get_last_page, get_html_from_url
 
-from tpscrapping import tools
-
 base_url = 'https://www.quebec.ca/en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec'\
 
 params = {
