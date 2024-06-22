@@ -20,7 +20,7 @@ print(f"Last page: {last_page}")
 last_update = transform_date(soup.find('div', class_='last-update-info').find_all("span")[1].text)
 print(f"Last update: {last_update}")
 
-for page_number in range(1, last_page):
+for page_number in range(1, last_page + 1):
     params['tx_solr[page]'] = page_number
     print(f"Page number: {page_number}")
 
