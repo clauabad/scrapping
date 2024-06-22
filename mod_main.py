@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 from tools.mod_helpers import transform_date, get_last_page, get_html_from_url
-from tools.mod_dao import create_db_and_table, insert_into_db
-# from tpscrapping import tools
+
+from tpscrapping import tools
 
 base_url = 'https://www.quebec.ca/en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec'\
 
@@ -54,18 +54,6 @@ for page_number in range(1, last_page + 1):
             print(f"Postal Code: {code_postal}")
             print(f"Region: {region}")
 
-            data = {}
-            data['id'] = int(id)
-            data['name'] = name
-            data['street'] = street
-            data['city'] = city
-            data['postal_code'] = code_postal
-            data['region'] = region
-
-            print(f"Data: {data}")
-
-            insert_into_db(data)
-
             items = data_hospital.find_all('li', class_='hopital-item')
 
             wait_non_priority = items[0].find_all('div')[1].find('span', class_='font-weight-bold').text.strip()
@@ -84,5 +72,3 @@ for page_number in range(1, last_page + 1):
 
     else:
         print("Failed to retrieve the webpage")
-
-create_db_and_table()
