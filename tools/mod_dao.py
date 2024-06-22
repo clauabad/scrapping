@@ -30,12 +30,11 @@ def create_db_and_table():
     conn.close()
 
 def insert_into_db(data):
-    conn = sqlite3.connect('hospitals.db')
+    conn = sqlite3.connect('EmergencyRooms.db')
     cursor = conn.cursor()
-    cursor.execute('''INSERT OR REPLACE INTO hospitals (id, name, street, city, postal_code, region, wait_non_priority, 
-                      waiting_to_see_doctor, total_people, occupancy_rate, avg_wait_room, avg_wait_stretcher, last_update) 
-                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''', data)
+    cursor.execute('''INSERT OR REPLACE INTO institutions (institution_id, name, street, city, postal_code, region) 
+                      VALUES (?, ?, ?, ?, ?, ?)''', (data['id'],  data['name'] , data['street'], data['city'], data['postal_code'], data['region']))
     conn.commit()
     conn.close()
 
-create_db_and_table()
+    # , wait_non_priority, waiting_to_see_doctor, total_people, occupancy_rate, avg_wait_room, avg_wait_stretcher, last_update
