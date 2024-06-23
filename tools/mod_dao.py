@@ -6,6 +6,10 @@ from models.mood_classes import Institution, Situation
 def create_db_and_table():
     conn = get_connexion()
     cursor = conn.cursor()
+
+    ##Allow foreign key
+    cursor.execute('PRAGMA foreign_keys = ON;')
+
     ##institution_id is the 'fichenro' coming from website
     cursor.execute('''CREATE TABLE IF NOT EXISTS institutions (
                       institution_id INTEGER PRIMARY KEY, 

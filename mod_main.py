@@ -46,7 +46,7 @@ for page_number in range(1, last_page + 1):
             region = address.contents[2].strip()
 
             fiche = title.find('div', class_='lien-fiche-sante')
-            id = fiche.find('a').get("href").split('?nofiche=')[1]
+            id = int(fiche.find('a').get("href").split('?nofiche=')[1])
 
             print(f"id: {id}")
             print(f"Name: {name}")
