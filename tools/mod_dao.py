@@ -1,6 +1,10 @@
 import sqlite3
+
+from models.mood_classes import Institution, Situation
+
+
 def create_db_and_table():
-    conn = sqlite3.connect('EmergencyRooms.db')
+    conn = get_connexion()
     cursor = conn.cursor()
     ##institution_id is the 'fichenro' coming from website
     cursor.execute('''CREATE TABLE IF NOT EXISTS institutions (
@@ -29,12 +33,24 @@ def create_db_and_table():
     conn.commit()
     conn.close()
 
-def insert_into_db(data):
-    conn = sqlite3.connect('EmergencyRooms.db')
+def insert_or_update_into_db(institution: Institution, situation: Situation):
+    conn = get_connexion()
     cursor = conn.cursor()
+
     cursor.execute('''INSERT OR REPLACE INTO institutions (institution_id, name, street, city, postal_code, region) 
-                      VALUES (?, ?, ?, ?, ?, ?)''', (data['id'],  data['name'] , data['street'], data['city'], data['postal_code'], data['region']))
+                      VALUES (?, ?, ?, ?, ?, ?)''', (institution.institution_id,  institution.name , institution.street,
+                                                     institution.city, institution.postal_code, institution.region))
+
+    conn.commit()
+
+    cursor.execute('''INSERT OR REPLACE INTO situations (institution_id, wait_non_priority, waiting_to_see_doctor, total_people, 
+                            occupancy_rate, avg_wait_room, avg_wait_stretcher, last_update) 
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?)''', (situation.institution_id,  situation.wait_non_priority , situation.waiting_to_see_doctor,
+                                                     situation.total_people, situation.occupancy_rate, situation.avg_wait_room, situation.avg_wait_stretcher,
+                                                     situation.last_update))
     conn.commit()
     conn.close()
 
-    # , wait_non_priority, waiting_to_see_doctor, total_people, occupancy_rate, avg_wait_room, avg_wait_stretcher, last_update
+def get_connexion():
+    conn = sqlite3.connect('EmergencyRooms.db')
+    return conn

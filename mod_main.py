@@ -1,6 +1,6 @@
-import requests
-from bs4 import BeautifulSoup
 from tools.mod_helpers import transform_date, get_last_page, get_html_from_url
+from models.mood_classes import Institution, Situation
+from tools.mod_dao import insert_or_update_into_db, create_db_and_table
 
 base_url = 'https://www.quebec.ca/en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec'\
 
@@ -12,12 +12,12 @@ params = {
     'tx_solr[page]': 1
 }
 
+create_db_and_table()
+
 soup = get_html_from_url(base_url, params)
 last_page = int(get_last_page(soup))
 print(f"Last page: {last_page}")
 
-last_update = transform_date(soup.find('div', class_='last-update-info').find_all("span")[1].text)
-print(f"Last update: {last_update}")
 
 for page_number in range(1, last_page + 1):
     params['tx_solr[page]'] = page_number
@@ -26,6 +26,9 @@ for page_number in range(1, last_page + 1):
     soup = get_html_from_url(base_url, params)
 
     if len(soup) > 0 :
+
+        last_update = transform_date(soup.find('div', class_='last-update-info').find_all("span")[1].text)
+        print(f"Last update: {last_update}")
 
         hospitals = soup.find('ul', class_='results-list list-group').find_all('div', class_='hospital_element')
 
@@ -66,6 +69,12 @@ for page_number in range(1, last_page + 1):
             print(f"Occupancy rate of stretchers: {occupancy_rate}")
             print(f"Average stay time in the waiting room (previous day): {avg_wait_room}")
             print(f"Average stay time on a stretcher (previous day): {avg_wait_stretcher}")
+
+            institution = Institution(institution_id=id, name=name, street=street, city=city, postal_code=code_postal,region=region)
+            situation = Situation(institution_id=id, wait_non_priority=wait_non_priority, waiting_to_see_doctor=waiting_to_see_doctor, total_people=total_people,
+                                  occupancy_rate=occupancy_rate, avg_wait_room=avg_wait_room, avg_wait_stretcher=avg_wait_stretcher, last_update=last_update)
+
+            insert_or_update_into_db(institution, situation)
             print('-' * 40)
 
     else:
