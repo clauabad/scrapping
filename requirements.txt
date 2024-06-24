@@ -1,3 +1,2 @@
 requests==2.32.3
-sqllite3==lastest
 beautifulsoup4==4.13.0b2
