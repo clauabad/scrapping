@@ -32,6 +32,7 @@ def create_db_and_table():
                          avg_wait_stretcher TEXT,
                          last_update TEXT,
                          FOREIGN KEY (institution_id) REFERENCES institutions(institution_id)
+                         UNIQUE (institution_id, last_update) ON CONFLICT REPLACE
                        )'''
                    )
     conn.commit()
@@ -47,9 +48,9 @@ def insert_or_update_into_db(institution: Institution, situation: Situation):
 
     conn.commit()
 
-    cursor.execute('''INSERT OR REPLACE INTO situations (institution_id, wait_non_priority, waiting_to_see_doctor, total_people, 
+    cursor.execute(''' INSERT OR REPLACE INTO situations (institution_id, wait_non_priority, waiting_to_see_doctor, total_people, 
                             occupancy_rate, avg_wait_room, avg_wait_stretcher, last_update) 
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?)''', (situation.institution_id,  situation.wait_non_priority , situation.waiting_to_see_doctor,
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)''', (situation.institution_id,  situation.wait_non_priority , situation.waiting_to_see_doctor,
                                                      situation.total_people, situation.occupancy_rate, situation.avg_wait_room, situation.avg_wait_stretcher,
                                                      situation.last_update))
     conn.commit()
