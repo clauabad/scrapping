@@ -1,9 +1,10 @@
-import schedule
-from schedule import every, repeat
 import time as tm
-from tools.mod_helpers import transform_date, get_last_page, get_html_from_url
+import schedule
+import logging
 from models.mood_classes import Institution, Situation
 from tools.mod_dao import insert_or_update_into_db, create_db_and_table
+from tools.mod_helpers import transform_date, get_last_page, get_html_from_url
+from datetime import datetime
 
 base_url = 'https://www.quebec.ca/en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec'\
 
@@ -15,22 +16,27 @@ params = {
     'tx_solr[page]': 1
 }
 
+# create an instance of the logger
+file_log = 'logs/logs.txt'
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename=file_log, encoding='utf-8', level=logging.DEBUG)
+
 create_db_and_table()
 
 def job():
-    params['tx_solr[page]'] = 1
-    soup = get_html_from_url(base_url, params)
-    last_page = int(get_last_page(soup))
-    print(f"Last page: {last_page}")
-
-
-    for page_number in range(1, last_page + 1):
-        params['tx_solr[page]'] = page_number
-        print(f"Page number: {page_number}")
-
+    logger.info(f'Job started {datetime.now()}')
+    try:
+        params['tx_solr[page]'] = 1
         soup = get_html_from_url(base_url, params)
+        last_page = int(get_last_page(soup))
+        print(f"Last page: {last_page}")
 
-        if len(soup) > 0 :
+
+        for page_number in range(1, last_page + 1):
+            params['tx_solr[page]'] = page_number
+            print(f"Page number: {page_number}")
+
+            soup = get_html_from_url(base_url, params)
 
             last_update = transform_date(soup.find('div', class_='last-update-info').find_all("span")[1].text)
             print(f"Last update: {last_update}")
@@ -82,11 +88,17 @@ def job():
                 insert_or_update_into_db(institution, situation)
                 print('-' * 40)
 
-        else:
-            print("Failed to retrieve the webpage")
+        logger.info(f'Job finished {datetime.now()}')
 
-schedule.every(2).hours.do(job)
+    except Exception as e:
+        logger.error(e, stack_info=True, exc_info=True)
+
+
+schedule.every(30).seconds.do(job)
 
 while True:
-    schedule.run_pending()
-    tm.sleep(1)
+    try:
+        schedule.run_pending()
+        tm.sleep(1)
+    except Exception as e:
+        logger.error(e, stack_info=True, exc_info=True)
