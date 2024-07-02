@@ -94,7 +94,7 @@ def job():
         logger.error(e, stack_info=True, exc_info=True)
 
 
-schedule.every(30).seconds.do(job)
+schedule.every(30).minutes.do(job)
 
 while True:
     try:
