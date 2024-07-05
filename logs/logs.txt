@@ -60964,3 +60964,58 @@ DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-sy
 DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
 DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=12 HTTP/1.1" 200 None
 INFO:__main__:Job finished 2024-07-04 19:21:15.567506
+DEBUG:schedule:Running job Job(interval=30, unit=minutes, do=job, args=(), kwargs={})
+INFO:__main__:Job started 2024-07-04 19:51:16.496001
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=2 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=3 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=4 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=5 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=6 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=7 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=8 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=9 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=10 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=11 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=12 HTTP/1.1" 200 None
+INFO:__main__:Job finished 2024-07-04 19:51:24.563907
+DEBUG:schedule:Running job Job(interval=30, unit=minutes, do=job, args=(), kwargs={})
+INFO:__main__:Job started 2024-07-04 20:21:24.979824
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=1 HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.quebec.ca:443
+DEBUG:urllib3.connectionpool:https://www.quebec.ca:443 "GET /en/health/health-system-and-services/service-organization/quebec-health-system-and-its-services/situation-in-emergency-rooms-in-quebec?id=24981&tx_solr%5Blocation%5D=H4L3A2&tx_solr%5Bpt%5D=45.5213056%2C-73.6985088&tx_solr%5Bsfield%5D=geolocation_location&tx_solr%5Bpage%5D=1 HTTP/1.1" 200 None
+ERROR:__main__:database is locked
+Traceback (most recent call last):
+  File "/Users/claudia.abad/Formation IA/A53/solutionnaires/tpscrapping/mod_main.py", line 88, in job
+    insert_or_update_into_db(institution, situation)
+  File "/Users/claudia.abad/Formation IA/A53/solutionnaires/tpscrapping/tools/mod_dao.py", line 49, in insert_or_update_into_db
+    conn.commit()
+sqlite3.OperationalError: database is locked
+Stack (most recent call last):
+  File "/Users/claudia.abad/Formation IA/A53/solutionnaires/tpscrapping/mod_main.py", line 101, in <module>
+    schedule.run_pending()
+  File "/Users/claudia.abad/Formation IA/Solutionnaires/meteo_scrapping/.venv/lib/python3.12/site-packages/schedule/__init__.py", line 854, in run_pending
+    default_scheduler.run_pending()
+  File "/Users/claudia.abad/Formation IA/Solutionnaires/meteo_scrapping/.venv/lib/python3.12/site-packages/schedule/__init__.py", line 101, in run_pending
+    self._run_job(job)
+  File "/Users/claudia.abad/Formation IA/Solutionnaires/meteo_scrapping/.venv/lib/python3.12/site-packages/schedule/__init__.py", line 173, in _run_job
+    ret = job.run()
+  File "/Users/claudia.abad/Formation IA/Solutionnaires/meteo_scrapping/.venv/lib/python3.12/site-packages/schedule/__init__.py", line 691, in run
+    ret = self.job_func()
+  File "/Users/claudia.abad/Formation IA/A53/solutionnaires/tpscrapping/mod_main.py", line 94, in job
+    logger.error(e, stack_info=True, exc_info=True)
